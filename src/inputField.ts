@@ -1,6 +1,6 @@
-import { Field } from '../Field';
-import { FieldLabel } from './FieldLabel';
-import { FieldType } from '../FieldType';
+import { Field } from './field';
+import { FieldLabel } from './fieldLabel';
+import { FieldType } from './fieldType';
 
 export class InputField implements Field {
   name: string;

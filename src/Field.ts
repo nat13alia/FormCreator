@@ -1,5 +1,5 @@
-import { FieldType } from './FieldType';
-import { FieldLabel } from './ClassLibrary/FieldLabel';
+import { FieldType } from './fieldType';
+import { FieldLabel } from './fieldLabel';
 
 // interfejs Field który będzie definiował podstawowe właściwości i metody pojedynczego pola ankiety.
 

@@ -5,6 +5,7 @@ export class FieldLabel {
   constructor(name: string) {
     this.name = name;
   }
+
   render() {
     // Create Label element
     const label: HTMLElement = document.createElement('label');

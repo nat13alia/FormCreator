@@ -1,7 +1,7 @@
-import { Form } from "./Form"; // CTRL + .
+import { Form } from './form'; // CTRL + .
+import { Field } from './field';
 
-// klasa zarządzająca z wszystkimi podstawowymi funkcjami aplikacji – reagowaniem na elementy interfejsu, wyświetlaniem formularzy itd. 
-
+// klasa zarządzająca z wszystkimi podstawowymi funkcjami aplikacji – reagowaniem na elementy interfejsu, wyświetlaniem formularzy itd.
 
 /* 
 
@@ -17,6 +17,18 @@ Przykładowy formularz do wyświetlenia:
 
 */
 
-export class App{
+export class App {
     activeForm: Form;
+
+    createNewForm() {
+        let form = new Form();
+        console.log('createNewForm has been called!');
+    }
+
+    createNewField() {
+        let field: Field;
+        console.log('createNewField has been called!');
+    }
 }
+
+
