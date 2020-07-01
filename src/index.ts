@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { App } from './app';
 
 const newFormForm = document.getElementById('document-form');
@@ -20,3 +21,6 @@ newFieldForm.addEventListener('submit', function (e) {
   newFieldForm.style.display = 'block';
   e.preventDefault();
 });
+=======
+console.log('Test');
+>>>>>>> 8a1f42394a260e756cf0bdd0a20063a49401b34f
