@@ -8,7 +8,12 @@ import { Field } from './field';
 // - render() wyświetlającą formularz we wskazanym miejscu.
 
 export class Form {
+  formName: string;
   formFields: Field[] = [];
+
+  constructor(name: string) {
+    this.formName = name;
+  }
 
   getValue() { }
   render() { }

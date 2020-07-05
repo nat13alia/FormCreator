@@ -20,9 +20,9 @@ Przykładowy formularz do wyświetlenia:
 export class App {
     activeForm: Form;
 
-    createNewForm() {
-        let form = new Form();
-        console.log('createNewForm has been called!');
+    createNewForm(name: string) {
+        let form = new Form(name);
+        console.log(`new Form name: ${form.formName}`);
     }
 
     createNewField() {
