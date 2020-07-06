@@ -15,5 +15,5 @@ export interface Field {
   type: FieldType;
   value: string;
 
-  render(): void;
+  render(): HTMLElement;
 }
