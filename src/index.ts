@@ -1,6 +1,7 @@
 import { App } from './app';
 import { Field } from './field';
 import { Form } from './form';
+import { LocStorage } from './locStorage';
 
 const newFormForm = document.getElementById('document-form');
 const formName = document.getElementById('dLabel') as HTMLInputElement;
@@ -12,6 +13,7 @@ const renderBtn = document.getElementById('renderBtn');
 const renderedForm = document.getElementById('renderedForm');
 const formValues = document.getElementById('formValues');
 
+const storage = new LocStorage();
 
 let forms: Form[] = [];
 
@@ -40,6 +42,7 @@ newFieldForm.addEventListener('submit', function (e) {
 // Listen for a call to render the Form
 renderBtn.addEventListener('click', function (e) {
   App.activeForm.render(renderedForm);
+  storage.saveDocument(App.activeForm);
   newFormForm.style.display = 'none';
   newFieldForm.style.display = 'none';
   renderBtn.style.display = 'none';
