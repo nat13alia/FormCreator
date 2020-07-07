@@ -10,6 +10,8 @@ const fieldName = document.getElementById('fLabel') as HTMLInputElement;
 
 const renderBtn = document.getElementById('renderBtn');
 const renderedForm = document.getElementById('renderedForm');
+const formValues = document.getElementById('formValues');
+
 
 let forms: Form[] = [];
 
@@ -47,10 +49,11 @@ renderBtn.addEventListener('click', function (e) {
 
 // Listen for a submit on the rendered the Form
 renderedForm.addEventListener('submit', function (e) {
-  console.log(App.activeForm.getValue());
+  console.log(App.activeForm.getValue(formValues));
   newFormForm.style.display = 'none';
   newFieldForm.style.display = 'none';
   renderBtn.style.display = 'none';
   renderedForm.style.display = 'none';
+  formValues.style.display = 'block';
   e.preventDefault();
 });

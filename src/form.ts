@@ -8,19 +8,32 @@ import { Field } from './field';
 // - getValue() pobierającą wyniki formularza
 // - render() wyświetlającą formularz we wskazanym miejscu.
 
+
 export class Form {
   formName: string;
   formFields: Field[] = [];
-  formValues: string[] = [];
+  formValues: [string, string][] = [];
 
   constructor(name: string) {
     this.formName = name;
   }
 
-  getValue() {
+  getValue(htmlElement: HTMLElement) {
     this.formFields.forEach(field => {
-      this.formValues.push(field.value);
+      const renderedField = document.getElementById(`${field.name.toLowerCase()}`) as HTMLInputElement;
+      this.formValues.push([`${field.name}`, renderedField.value]);
     });
+    // Create a header 
+    const ul: HTMLElement = document.createElement('ul');
+    // Set the header text content to the name of the Form
+    ul.textContent = 'Values entered to the form:';
+    // Append the header to the element where the form should be rendered
+    htmlElement.appendChild(ul);
+    this.formValues.forEach(pair => {
+      let li: HTMLLIElement = document.createElement('li');
+      li.textContent = `${pair[0]}: ${pair[1]}`;
+      htmlElement.appendChild(li)
+    })
     return this.formValues;
   }
 
