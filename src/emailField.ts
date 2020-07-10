@@ -25,4 +25,8 @@ export class EmailField implements Field {
     emailField.setAttribute('type', `${this.type.toLowerCase()}`);
     return emailField;
   }
+  getValue(): string {
+    const input = document.getElementById(`${this.name.toLowerCase()}`) as HTMLTextAreaElement;
+    return input.value;
+  }
 }

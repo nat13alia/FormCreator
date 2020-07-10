@@ -13,14 +13,20 @@ export class LocStorage implements DataStorage {
   saveDocument(document: Form): void {
     let timeStamp: number = Date.now();
     let documentID: string = `${document.formName}-${timeStamp}`;
-    let documents: [Form, string][];
-    if (localStorage.getItem('documents') === null) {
+    let documents: Form[];
+    let documentIDs: string[];
+    if (localStorage.getItem('documents') === null && localStorage.getItem('documentIDs') === null) {
       documents = [];
+      documentIDs = [];
     } else {
       documents = JSON.parse(localStorage.getItem('documents'));
+      documentIDs = JSON.parse(localStorage.getItem('documentIDs'));
     }
-    documents.push([document, documentID]);
+
+    documents.push(document);
+    documentIDs.push(documentID);
     localStorage.setItem('documents', JSON.stringify(documents));
+    localStorage.setItem('documentIDs', JSON.stringify(documentIDs));
   }
 
   loadDocument(): void {

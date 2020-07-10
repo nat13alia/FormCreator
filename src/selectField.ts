@@ -25,4 +25,9 @@ export class SelectField implements Field {
     selectField.setAttribute('type', `${this.type.toLowerCase()}`);
     return selectField;
   }
+
+  getValue(): string {
+    const input = document.getElementById(`${this.name.toLowerCase()}`) as HTMLInputElement;
+    return input.value;
+  }
 }

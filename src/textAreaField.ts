@@ -25,4 +25,9 @@ export class TextareaField implements Field {
     textareaField.setAttribute('type', `${this.type.toLowerCase()}`);
     return textareaField;
   }
+
+  getValue(): string {
+    const input = document.getElementById(`${this.name.toLowerCase()}`) as HTMLTextAreaElement;
+    return input.value;
+  }
 }

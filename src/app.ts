@@ -20,15 +20,14 @@ Przykładowy formularz do wyświetlenia:
 4.	Wybrany kierunek studiów (select) 
 5.	Czy preferujesz e-learning (checkbox) 
 6.	Uwagi (textarea) 
-
 */
 
 export class App {
+    static forms: Form[] = [];
     static activeForm: Form;
 
     static createNewForm(name: string) {
         let form = new Form(name);
-        console.log(`new Form name: ${form.formName}`);
         return form;
     }
 
@@ -63,7 +62,6 @@ export class App {
             default:
                 break;
         }
-        console.log(`createNewField has been called and it's type is: ${field.type}`);
         return field;
     }
 }

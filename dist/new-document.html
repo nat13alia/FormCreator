@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
+    integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous" />
+  <title>Form Creator</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Form Creator</h1>
+
+    <form id="document-form">
+      <label for="dLabel">Name of the Form</label>
+      <input type="text" id="dLabel" class="u-full-width" placeholder="Enter Name for a New Form Document" />
+      <br />
+      <input type="submit" value="Go to Field Creator" />
+    </form>
+
+    <form id="field-form">
+      <label for="fLabel">Field Name</label>
+      <input type="text" id="fLabel" class="u-full-width" placeholder="Enter Field Name" />
+      <label for="fType">Select Field Type</label>
+      <select name="" id="fieldType">
+        <option value="text">Text</option>
+        <option value="multiLineText">MultiLineText</option>
+        <option value="date">Date</option>
+        <option value="email">Email</option>
+        <option value="select">Select</option>
+        <option value="checkbox">Checkbox</option>
+      </select>
+      <br />
+      <input type="submit" value="Add a new field" />
+    </form>
+    <button id="renderBtn">Render the form</button>
+    <div id="renderedForm"></div>
+    <div id="formValues"></div>
+    <div id="documentsList"></div>
+    <button id="saveBtn">Save the Form</button>
+    <button id="backBtn">Go back to Main Menu</button>
+  </div>
+  <script src="new_document.js"></script>
+</body>
+
+</html>

@@ -66,6 +66,18 @@ export class Form {
     form.appendChild(linebreak);
     form.appendChild(submitField);
     htmlElement.appendChild(form);
+
+    // Create a button for saving the Form
+    const saveBtn: HTMLButtonElement = document.createElement('button');
+    saveBtn.setAttribute('id', 'saveBtn');
+    saveBtn.textContent = 'Save the Form';
+
+    // Create a button for going back to menu
+    const backBtn: HTMLButtonElement = document.createElement('button');
+    backBtn.setAttribute('id', 'backBtn');
+    backBtn.textContent = 'Go back to Main Menu';
+    htmlElement.appendChild(saveBtn);
+    htmlElement.appendChild(backBtn);
   }
 }
 

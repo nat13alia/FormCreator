@@ -14,6 +14,7 @@ export class InputField implements Field {
     this.type = type;
     this.value = value;
   }
+
   render(): HTMLElement {
     // Create input element
     const inputField: HTMLInputElement = document.createElement('input');
@@ -24,5 +25,9 @@ export class InputField implements Field {
     // Set attribute 'name'
     inputField.setAttribute('type', `${this.type.toLowerCase()}`);
     return inputField;
+  }
+  getValue(): string {
+    const input = document.getElementById(`${this.name.toLowerCase()}`) as HTMLInputElement;
+    return input.value;
   }
 }

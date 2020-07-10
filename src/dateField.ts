@@ -25,4 +25,8 @@ export class DateField implements Field {
     dateField.setAttribute('type', `${this.type.toLowerCase()}`);
     return dateField;
   }
+  getValue(): string {
+    const input = document.getElementById(`${this.name.toLowerCase()}`) as HTMLTextAreaElement;
+    return input.value;
+  }
 }

@@ -25,4 +25,9 @@ export class CheckboxField implements Field {
     checkboxField.setAttribute('type', `${this.type.toLowerCase()}`);
     return checkboxField;
   }
+
+  getValue(): string {
+    const input = document.getElementById(`${this.name.toLowerCase()}`) as HTMLInputElement;
+    return input.value;
+  }
 }

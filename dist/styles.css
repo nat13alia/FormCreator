@@ -5,3 +5,15 @@
 #renderBtn{
   display: none;
 }
+
+table, tr { 
+  border: 1px solid black; 
+}
+
+#saveBtn{
+  display: none;
+}
+
+#backBtn{
+  display: none;
+}

@@ -16,4 +16,5 @@ export interface Field {
   value: string;
 
   render(): HTMLElement;
+  getValue(): string;
 }
