@@ -43,7 +43,6 @@ newFieldForm.addEventListener('submit', function (e) {
 // Listen for a call to render the Form
 renderBtn.addEventListener('click', function (e) {
   App.activeForm.render(renderedForm);
-  storage.saveDocument(App.activeForm);
   newFormForm.style.display = 'none';
   newFieldForm.style.display = 'none';
   renderBtn.style.display = 'none';
@@ -52,6 +51,12 @@ renderBtn.addEventListener('click', function (e) {
   backBtn.style.display = 'block';
   e.preventDefault();
 });
+
+saveBtn.addEventListener('click', function (e) {
+  storage.saveDocument(App.activeForm);
+  window.location.href = 'index.html';
+  e.preventDefault();
+})
 
 backBtn.addEventListener('click', function (e) {
   window.location.href = 'index.html';
