@@ -1,6 +1,6 @@
-import { Field } from './field';
-import { FieldLabel } from './fieldLabel';
-import { FieldType } from './fieldType';
+import { Field } from "../interfaces/Field";
+import { FieldLabel } from "./FieldLabel";
+import { FieldType } from "../enums/FieldType";
 
 export class SelectField implements Field {
   name: string;
@@ -16,13 +16,17 @@ export class SelectField implements Field {
   }
   render(): HTMLElement {
     // Create input element
-    const selectField: HTMLInputElement = document.createElement('input');
+    const select: HTMLInputElement = document.createElement('input');
     // Add attribute 'id'
-    selectField.setAttribute('id', `${this.name.toLowerCase()}`);
+    select.setAttribute('id', `${this.name.toLowerCase()}`);
     // Add attribute 'name'
-    selectField.setAttribute('name', `${this.name.toLowerCase()}`);
+    select.setAttribute('name', `${this.name.toLowerCase()}`);
     // Set attribute 'type'
-    selectField.setAttribute('type', `${this.type.toLowerCase()}`);
+    select.setAttribute('type', `${this.type.toLowerCase()}`);
+
+    const selectField: HTMLDivElement = document.createElement('div');
+    selectField.appendChild(this.label.render());
+    selectField.appendChild(select);
     return selectField;
   }
 

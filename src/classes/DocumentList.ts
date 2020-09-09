@@ -1,67 +1,76 @@
+import { LocStorage } from './LocStorage';
 import { Form } from "./form";
 
 export class DocumentList {
-  static documentsList: Form[];
-  static documentIDs: string[];
+  documentsList: Form[];
+  documentIDs: string[];
 
   // metoda powinna korzystać z klasy LocStorage do pobrania listy dokumentów i zapamiętania jej w wewn. właściwości klasy
-  static getDocumentList(): [Form[], string[]] {
-    if (localStorage.getItem('documents') === null && localStorage.getItem('documentIDs') === null) {
-      this.documentsList = [];
-      this.documentIDs = [];
-    } else {
-      this.documentsList = JSON.parse(localStorage.getItem('documents'));
-      this.documentIDs = JSON.parse(localStorage.getItem('documentIDs'));
-    }
+  getDocumentList(): [Form[], string[]] {
+    let storage = new LocStorage();
+    this.documentsList = storage.getDocuments('documents');
+    this.documentIDs = storage.getDocuments('keys');
     return [this.documentsList, this.documentIDs];
   }
 
   //  metoda powinna wyświetlać listę dokumentów w formie tabeli zawierającej id dokumentu
-  static render(htmlElement: HTMLElement) {
+  render(): HTMLTableElement {
     // Create table element
-    const docListTable: HTMLTableElement = document.createElement('table');
+    const docsTable: HTMLTableElement = document.createElement('table');
+    // Set attribute 'id' and 'class'
+    docsTable.setAttribute('id', 'docsTable');
+    docsTable.setAttribute('class', 'u-full-width');
+    // Create thead element
     const tHead: HTMLElement = document.createElement('thead');
+    // Create th element for ID column
+    const thName: HTMLHeadElement = document.createElement('th');
+    thName.textContent = 'Document Name'
+    // Create th element for ID column
     const thID: HTMLHeadElement = document.createElement('th');
-    const thEdit: HTMLHeadElement = document.createElement('th');
-    const thRemove: HTMLHeadElement = document.createElement('th');
-    const trHeader: HTMLTableRowElement = document.createElement('tr');
     thID.textContent = 'Document ID'
+    // Create th element for Edit link column
+    const thEdit: HTMLHeadElement = document.createElement('th');
+    // Create th element for remove btn column
+    const thRemove: HTMLHeadElement = document.createElement('th');
+    // Create tr element for header
+    const trHeader: HTMLTableRowElement = document.createElement('tr');
+    trHeader.appendChild(thName);
     trHeader.appendChild(thID);
     trHeader.appendChild(thEdit);
     trHeader.appendChild(thRemove);
     tHead.appendChild(trHeader);
-    docListTable.appendChild(tHead);
+    docsTable.appendChild(tHead);
 
-    // Set attribute 'id'
-    docListTable.setAttribute('id', 'documentsTable');
-    docListTable.setAttribute('class', 'u-full-width');
-
+    const tBody: HTMLElement = document.createElement('tbody');
+    // Create a element for edit link
     let editLink: HTMLAnchorElement = document.createElement('a');
     // Setting attributes
     editLink.setAttribute('class', 'editLink');
     editLink.textContent = 'Edit'
 
-    const tBody: HTMLElement = document.createElement('tbody');
-
-    let listOfDocs: [Form[], string[]] = this.getDocumentList();
-    for (let i = 0; i < listOfDocs[0].length; i++) {
+    for (let i = 0; i < this.documentsList.length; i++) {
+      const tdName: HTMLElement = document.createElement('td');
       const tdID: HTMLElement = document.createElement('td');
       const tdEdit: HTMLElement = document.createElement('td');
       const tdRemove: HTMLElement = document.createElement('td');
       const tr: HTMLTableRowElement = document.createElement('tr');
 
-      tdID.textContent = `${listOfDocs[0][i].formName} : ${listOfDocs[1][i]}`;
+      tdName.textContent = `${this.documentsList[i].name}`;
+      tdID.textContent = `${this.documentIDs[i]}`;
       tdEdit.innerHTML = `<a class="editLink" href="edit-document.html?id=${this.documentIDs[i]}">EDIT</a>`;
-      tdRemove.innerHTML = `<button class="removeBtn">Remove</button>`;
+      tdRemove.innerHTML = `<button class="removeBtn ${this.documentIDs[i]}">Remove</button>`;
+      tr.appendChild(tdName);
       tr.appendChild(tdID);
       tr.appendChild(tdEdit);
       tr.appendChild(tdRemove);
       tBody.appendChild(tr);
     }
 
-    docListTable.appendChild(tBody);
-    htmlElement.appendChild(docListTable);
+    docsTable.appendChild(tBody);
+    return docsTable;
   };
+
+
 
   static getDocument(id: string) {
 

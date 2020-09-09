@@ -1,6 +1,6 @@
-import { Field } from './field';
-import { FieldLabel } from './fieldLabel';
-import { FieldType } from './fieldType';
+import { Field } from "../interfaces/Field";
+import { FieldLabel } from "./FieldLabel";
+import { FieldType } from "../enums/FieldType";
 
 export class EmailField implements Field {
   name: string;
@@ -16,13 +16,17 @@ export class EmailField implements Field {
   }
   render(): HTMLElement {
     // Create input element
-    const emailField: HTMLInputElement = document.createElement('input');
+    const emailInput: HTMLInputElement = document.createElement('input');
     // Add attribute 'id'
-    emailField.setAttribute('id', `${this.name.toLowerCase()}`);
+    emailInput.setAttribute('id', `${this.name.toLowerCase()}`);
     // Add attribute 'name'
-    emailField.setAttribute('name', `${this.name.toLowerCase()}`);
+    emailInput.setAttribute('name', `${this.name.toLowerCase()}`);
     // Set attribute 'type'
-    emailField.setAttribute('type', `${this.type.toLowerCase()}`);
+    emailInput.setAttribute('type', `${this.type.toLowerCase()}`);
+
+    const emailField: HTMLDivElement = document.createElement('div');
+    emailField.appendChild(this.label.render());
+    emailField.appendChild(emailInput);
     return emailField;
   }
   getValue(): string {

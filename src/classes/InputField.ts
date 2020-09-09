@@ -1,6 +1,6 @@
-import { Field } from './field';
-import { FieldLabel } from './fieldLabel';
-import { FieldType } from './fieldType';
+import { Field } from "../interfaces/Field";
+import { FieldLabel } from "./FieldLabel";
+import { FieldType } from "../enums/FieldType";
 
 export class InputField implements Field {
   name: string;
@@ -17,13 +17,17 @@ export class InputField implements Field {
 
   render(): HTMLElement {
     // Create input element
-    const inputField: HTMLInputElement = document.createElement('input');
+    const textInput: HTMLInputElement = document.createElement('input');
     // Set attribute 'id'
-    inputField.setAttribute('id', `${this.name.toLowerCase()}`);
+    textInput.setAttribute('id', `${this.name.toLowerCase()}`);
     // Set attribute 'name'
-    inputField.setAttribute('name', `${this.name.toLowerCase()}`);
+    textInput.setAttribute('name', `${this.name.toLowerCase()}`);
     // Set attribute 'name'
-    inputField.setAttribute('type', `${this.type.toLowerCase()}`);
+    textInput.setAttribute('type', `${this.type.toLowerCase()}`);
+
+    const inputField: HTMLDivElement = document.createElement('div');
+    inputField.appendChild(this.label.render());
+    inputField.appendChild(textInput);
     return inputField;
   }
   getValue(): string {

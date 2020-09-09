@@ -1,6 +1,6 @@
-import { Field } from './field';
-import { FieldLabel } from './fieldLabel';
-import { FieldType } from './fieldType';
+import { Field } from "../interfaces/Field";
+import { FieldLabel } from "./FieldLabel";
+import { FieldType } from "../enums/FieldType";
 
 export class DateField implements Field {
   name: string;
@@ -16,13 +16,17 @@ export class DateField implements Field {
   }
   render(): HTMLElement {
     // Create input element
-    const dateField: HTMLInputElement = document.createElement('input');
+    const dateInput: HTMLInputElement = document.createElement('input');
     // Add attribute 'id'
-    dateField.setAttribute('id', `${this.name.toLowerCase()}`);
+    dateInput.setAttribute('id', `${this.name.toLowerCase()}`);
     // Add attribute 'name'
-    dateField.setAttribute('name', `${this.name.toLowerCase()}`);
+    dateInput.setAttribute('name', `${this.name.toLowerCase()}`);
     // Set attribute 'type'
-    dateField.setAttribute('type', `${this.type.toLowerCase()}`);
+    dateInput.setAttribute('type', `${this.type.toLowerCase()}`);
+
+    const dateField: HTMLDivElement = document.createElement('div');
+    dateField.appendChild(this.label.render());
+    dateField.appendChild(dateInput);
     return dateField;
   }
   getValue(): string {

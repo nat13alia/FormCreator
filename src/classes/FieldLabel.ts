@@ -1,4 +1,3 @@
-// => wyświetla etykiete
 export class FieldLabel {
   name: string;
 
@@ -6,13 +5,13 @@ export class FieldLabel {
     this.name = name;
   }
 
-  render(): HTMLElement {
-    // Create Label element
+  render(): HTMLLabelElement {
+    // Create a label element
     const label: HTMLLabelElement = document.createElement('label');
     // Add attribute 'for'
     label.setAttribute('for', `${this.name.toLowerCase()}`);
-    // Add Text
+    // Add TextContent
     label.textContent = `${this.name}`;
-    return label as HTMLElement;
+    return label;
   }
 }

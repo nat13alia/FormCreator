@@ -6,11 +6,18 @@
   display: none;
 }
 
+.container {
+  text-align: center;
+}  
 #saveBtn{
   display: none;
 }
 
 #backBtn{
+  display: none;
+}
+
+#editFormBtn{
   display: none;
 }
 

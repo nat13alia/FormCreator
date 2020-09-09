@@ -14,20 +14,20 @@
   <div class="container">
     <h1>Form Creator</h1>
 
-    <form id="document-form">
-      <label for="dLabel">Name of the Form</label>
-      <input type="text" id="dLabel" class="u-full-width" placeholder="Enter Name for a New Form Document" />
+    <form id="form-form">
+      <label for="formName">Name for a New Form</label>
+      <input type="text" id="formName" class="u-full-width" placeholder="Enter the Name for a New Form" />
       <br />
       <input type="submit" value="Go to Field Creator" />
     </form>
 
     <form id="field-form">
-      <label for="fLabel">Field Name</label>
-      <input type="text" id="fLabel" class="u-full-width" placeholder="Enter Field Name" />
-      <label for="fType">Select Field Type</label>
-      <select name="" id="fieldType">
+      <label for="fieldName">Field Name</label>
+      <input type="text" id="fieldName" class="u-full-width" placeholder="Enter the Name for a New Field" />
+      <label for="fieldType">Select Field Type</label>
+      <select id="fieldType">
         <option value="text">Text</option>
-        <option value="multiLineText">MultiLineText</option>
+        <option value="multilinetext">MultiLineText</option>
         <option value="date">Date</option>
         <option value="email">Email</option>
         <option value="select">Select</option>
@@ -37,13 +37,11 @@
       <input type="submit" value="Add a new field" />
     </form>
     <button id="renderBtn">Render the form</button>
-    <div id="renderedForm"></div>
-    <div id="formValues"></div>
-    <div id="documentsList"></div>
     <button id="saveBtn">Save the Form</button>
+    <button id="editFormBtn">Edit the Form</button>
     <button id="backBtn">Go back to Main Menu</button>
   </div>
-  <script src="new_document.js"></script>
+  <script src="new_form.js"></script>
 </body>
 
 </html>
