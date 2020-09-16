@@ -25,7 +25,9 @@ formCreator.storage = new LocStorage();
 
 // Listen for a submit for a new Form to be created
 newFormForm.addEventListener('submit', function (e) {
-  formCreator.newForm(formName.value);
+  // var str = ;
+  // document.write(str.);
+  formCreator.newForm(formName.value.replace(/\s/g, ''));
   newFormForm.style.display = 'none';
   newFieldForm.style.display = 'block';
   e.preventDefault();

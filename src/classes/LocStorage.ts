@@ -1,6 +1,7 @@
 import { DataStorage } from './dataStorage';
 import { Form } from './form';
 import { Doc } from './Doc';
+import { Field } from '../interfaces/Field';
 
 export class LocStorage implements DataStorage {
   getDocuments<T extends Form | string>(key: string): T[] {
@@ -63,8 +64,38 @@ export class LocStorage implements DataStorage {
     localStorage.setItem('documents', JSON.stringify(objectContainer));
     localStorage.setItem('keys', JSON.stringify(keysContainer));
   }
-  loadDocument(): void {
-    throw new Error("Method not implemented.");
+
+  loadDocument<T extends Form | Doc>(documentID: string): {
+    fields: Field[];
+    name: string;
+  } {
+    let objectContainer: T[];
+    let keysContainer: string[];
+    let documentToLoad: {
+      fields: Field[];
+      name: string;
+    };
+
+    if (localStorage.getItem('documents') === null) {
+      console.log("There are no documents to load!");
+    } else {
+      objectContainer = JSON.parse(localStorage.getItem('documents'));
+    }
+
+    if (localStorage.getItem('keys') === null) {
+      console.log("The array of keys is empty");
+    } else {
+      keysContainer = JSON.parse(localStorage.getItem('keys'));
+    }
+
+    for (let i = 0; i < keysContainer.length; i++) {
+      if (keysContainer[i] === documentID) {
+        console.log(objectContainer[i]);
+        documentToLoad = objectContainer[i];
+      }
+    }
+
+    return documentToLoad;
   }
 }
 

@@ -50,18 +50,6 @@ export class FormCreator {
     return App.activeField.render();
   }
 
-  saveForm() {
-
-  }
-
-  editForm() {
-
-  }
-
-  renderForm() {
-
-  }
-
   static renderSubmitButton(id: string, value: string): HTMLInputElement {
     const submitField: HTMLInputElement = document.createElement('input');
     // Set attribute 'type'

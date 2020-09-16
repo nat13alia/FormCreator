@@ -8,7 +8,7 @@ module.exports = {
     new_form: "./src/new-form.ts",
     //document_list: "./src/document-list.ts",
     form_list: "./src/form-list.ts",
-    //edit_document: "./src/edit-document.ts"
+    edit_document: "./src/edit-document.ts"
   },
   output: {
     filename: "[name].js",

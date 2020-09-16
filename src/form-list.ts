@@ -18,7 +18,6 @@ window.addEventListener('DOMContentLoaded', function (e) {
 
   document.getElementById('docsTable').addEventListener('click', function (e) {
     deleteEntry(e.target);
-    e.preventDefault();
   })
   e.preventDefault();
 })
@@ -34,3 +33,4 @@ function deleteEntry(target: any) {
     target.parentElement.parentElement.remove();
   }
 }
+
