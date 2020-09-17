@@ -25,9 +25,14 @@
 .container {
   text-align: center;
   height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+#form-form, #field-form {
+  width: 70%;
 }
 
 
@@ -42,7 +47,6 @@ a {
 }
 
 button{
-  width:80%;
   text-align: center;
 }
 
@@ -50,9 +54,6 @@ button{
   width: 100%;
 }
 
-input {
-  width: 50%;
-}
 
 .optionsHolder button{
   width: 60%;
