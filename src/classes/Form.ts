@@ -33,4 +33,12 @@ export class Form {
     form.appendChild(FormCreator.renderSubmitButton('submitBtn', 'Submit the Form!'));
     return form;
   }
+
+  getValues(): string[] {
+    let values: string[];
+    this.fields.forEach(field => {
+      values.push(field.getValue());
+    });
+    return values;
+  }
 }

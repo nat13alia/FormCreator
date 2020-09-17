@@ -6,17 +6,6 @@
   display: none;
 }
 
-.container {
-  text-align: center;
-  height: 100vh;
-  
-}
-.c1{
-  height: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
 #saveBtn{
   display: none;
 }
@@ -29,6 +18,19 @@
   display: none;
 }
 
+.optionsHolder{
+  display: none;
+}
+
+.container {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 a {
   display: inline-block;
   text-decoration: none;
@@ -37,4 +39,29 @@ a {
   background-color: #fff;
   padding: 10px;
   color: #333;
+}
+
+button{
+  width:80%;
+  text-align: center;
+}
+
+#submitBtn {
+  width: 100%;
+}
+
+input {
+  width: 50%;
+}
+
+.optionsHolder button{
+  width: 60%;
+}
+
+div .formList{
+  width:100%;
+}
+
+div .formList button {
+  width:70%;
 }

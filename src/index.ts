@@ -10,10 +10,10 @@ newDocBtn.addEventListener('click', function (e) {
 });
 
 // Listen for a call to view the List of the Documents
-docListBtn.addEventListener('click', function (e) {
-  window.location.href = 'document-list.html';
-  e.preventDefault();
-});
+// docListBtn.addEventListener('click', function (e) {
+//   window.location.href = 'document-list.html';
+//   e.preventDefault();
+// });
 
 formListBtn.addEventListener('click', function (e) {
   window.location.href = 'form-list.html';

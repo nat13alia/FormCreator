@@ -18,7 +18,7 @@ export class FormCreator {
     App.activeForm = new Form(name, []);
   }
 
-  newField(name: string, type: string): HTMLElement {
+  newField(name: string, type: string, options?: string[]): HTMLElement {
     switch (type) {
       case 'text':
         App.activeField = new InputField(name, FieldType.Text, '');
@@ -37,7 +37,7 @@ export class FormCreator {
         break;
 
       case 'select':
-        App.activeField = new SelectField(name, FieldType.Select, '');
+        App.activeField = new SelectField(name, FieldType.Select, '', options);
         break;
 
       case 'checkbox':
@@ -59,5 +59,18 @@ export class FormCreator {
     // Set attribute 'value'
     submitField.setAttribute('value', `${value}`);
     return submitField
+  }
+
+  static renderInputForOptions(): HTMLInputElement {
+    const textInput: HTMLInputElement = document.createElement('input');
+    // Set attribute 'type'
+    textInput.setAttribute('type', 'text');
+    // Set attribute 'id'
+    textInput.setAttribute('id', 'optionInput');
+    // Set attribute 'class'
+    textInput.setAttribute('class', 'optionInput u-full-width');
+    // Set attribute 'class'
+    textInput.setAttribute('placeholder', 'Enter the Option');
+    return textInput;
   }
 }

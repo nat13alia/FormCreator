@@ -3,7 +3,7 @@ import { FormCreator } from './classes/FormCreator';
 import { LocStorage } from './classes/LocStorage';
 import { DocumentList } from "./classes/documentList";
 
-const formList = document.getElementById('formList');
+const formList = document.querySelector('.formList');
 const backBtn = document.getElementById('backBtn');
 
 const formCreator = new FormCreator();

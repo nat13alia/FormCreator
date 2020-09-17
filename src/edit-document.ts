@@ -1,3 +1,4 @@
+import { SelectField } from './classes/SelectField';
 import { App } from './classes/App';
 import { FormCreator } from "./classes/FormCreator";
 import { LocStorage } from "./classes/LocStorage";
@@ -20,17 +21,24 @@ let doc: {
 window.addEventListener('DOMContentLoaded', function (e) {
   backBtn.style.display = 'block';
   doc = formCreator.storage.loadDocument(docID);
-  console.log(docID);
-  console.log(doc);
   formCreator.newForm(doc.name);
   container.insertBefore(App.activeForm.render(), backBtn);
   const form = document.getElementById(`${App.activeForm.name.toLowerCase()}`) as HTMLFormElement;
-  console.log(form);
   doc.fields.forEach(field => {
     const submitBtn = document.querySelector('#submitBtn') as HTMLInputElement;
+    if (field.type === 'select') {
+      form.insertBefore(formCreator.newField(field.name, field.type, field.options), submitBtn);
+    }
     form.insertBefore(formCreator.newField(field.name, field.type), submitBtn);
   });
-})
+
+  form.addEventListener('submit', function (e) {
+    console.log(App.activeForm.getValues());
+    window.location.href = 'form-list.html';
+    e.preventDefault();
+  })
+});
+
 
 backBtn.addEventListener('click', function (e) {
   window.location.href = 'index.html';

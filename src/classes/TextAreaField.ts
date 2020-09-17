@@ -16,7 +16,7 @@ export class TextareaField implements Field {
   }
   render(): HTMLElement {
     // Create input element
-    const textarea: HTMLInputElement = document.createElement('input');
+    const textarea: HTMLTextAreaElement = document.createElement('textarea');
     // Add attribute 'id'
     textarea.setAttribute('id', `${this.name.toLowerCase()}`);
     // Add attribute 'name'

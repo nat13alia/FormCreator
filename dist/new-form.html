@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
     integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous" />
-  <title>Form Creator</title>
+  <title>Form Creator | New Form</title>
 </head>
 
 <body>
@@ -33,6 +33,10 @@
         <option value="select">Select</option>
         <option value="checkbox">Checkbox</option>
       </select>
+      <div class="optionsHolder">
+        <input type="text" id="optionInput" class="optionInput u-full-width" placeholder="Enter the Option" />
+        <button id="addAnotherOption">Add Another Option</button>
+      </div>
       <br />
       <input type="submit" value="Add a new field" />
     </form>

@@ -18,7 +18,9 @@ export class LocStorage implements DataStorage {
 
   saveDocument<T extends Form | Doc>(document: T, key: string): void {
     let timeStamp: number = Date.now();
-    let documentID: string = `${document.name}-${timeStamp}`;
+    // var str = str.;
+    // document.write(str.);
+    let documentID: string = `${document.name.replace(/\s/g, '')}-${timeStamp}`;
     let objectContainer: T[];
     let keysContainer: string[];
     if (localStorage.getItem(key) === null) {
